@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Registro</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='estilos.css') }}">
+</head>
+<body>
+  <header class="header">
+    <div class="logo"></div>
+    <h1>Nombre institución</h1>
+    <nav>
+      <a href="{{ url_for('index') }}">Inicio</a>
+      <a href="{{ url_for('login') }}">Login</a>
+    </nav>
+  </header>
+
+  <main class="main-grid">
+    <section class="panel izquierdo">
+      <h2>Regístrate</h2>
+      <p>Crea tu cuenta médica o de recepcionista.</p>
+    </section>
+    <section class="panel derecho">
+      <div class="form-container">
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            <ul>{% for msg in messages %}<li>{{ msg }}</li>{% endfor %}</ul>
+          {% endif %}
+        {% endwith %}
+        <form method="POST">
+          <input name="nombre" placeholder="Nombre(s)" required>
+          <input name="apellido_paterno" placeholder="Apellido paterno" required>
+          <input name="apellido_materno" placeholder="Apellido materno" required>
+          <input name="telefono" placeholder="Teléfono" required>
+          <input name="usuario" placeholder="Usuario" required>
+          <input type="password" name="contrasena" placeholder="Contraseña" required>
+          <label>Tipo de usuario:</label>
+          <select name="tipo_usuario">
+            <option value="medico">Médico</option>
+            <option value="recepcionista">Recepcionista</option>
+          </select>
+          <input type="submit" value="Registrarse" class="btn btn-reg">
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    Pie de página
+  </footer>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Sistema de Salud</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='estilos.css') }}">
+</head>
+<body>
+  <header class="header">
+    <div class="logo"></div>
+    <h1>Nombre institución</h1>
+    <nav>
+      <a href="{{ url_for('login') }}">Inicio de sesión</a>
+    </nav>
+  </header>
+
+  <main class="main-grid">
+    <section class="panel izquierdo">
+      <h2>BIENVENIDO AL</h2>
+      <h1 class="big">SISTEMA</h1>
+      <h3>LEYENDA SOBRE SALUD</h3>
+      <div class="buttons">
+        <a href="{{ url_for('registro') }}" class="btn btn-reg">Registrarse</a>
+        <a href="{{ url_for('login') }}" class="btn btn-log">Iniciar sesión</a>
+      </div>
+    </section>
+
+    <section class="panel derecho">
+      <h3>Video de introducción</h3>
+      <video width="400" height="250" controls>
+        <source src="{{ url_for('static', filename='intro.mp4') }}" type="video/mp4">
+      </video>
+      <button class="btn btn-log">Mutear audio</button>
+    </section>
+  </main>
+
+  <section class="faq">
+    <h3>Preguntas Frecuentes</h3>
+    <ul>
+      <li>¿Cómo me registro?</li>
+      <li>¿Cómo reprogramo mi cita?</li>
+      <li>¿Qué documentos necesito?</li>
+    </ul>
+  </section>
+
+  <footer class="footer">
+    Pie de página
+  </footer>
+</body>
+</html>

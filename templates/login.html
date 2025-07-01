@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='estilos.css') }}">
+</head>
+<body>
+  <header class="header">
+    <div class="logo"></div>
+    <h1>Nombre institución</h1>
+    <nav>
+      <a href="{{ url_for('index') }}">Inicio</a>
+      <a href="{{ url_for('registro') }}">Registro</a>
+    </nav>
+  </header>
+
+  <main class="main-grid">
+    <section class="panel izquierdo">
+      <h2>Inicia sesión</h2>
+      <p>Accede con tu cuenta para continuar.</p>
+    </section>
+    <section class="panel derecho">
+      <div class="form-container">
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            <ul>{% for msg in messages %}<li>{{ msg }}</li>{% endfor %}</ul>
+          {% endif %}
+        {% endwith %}
+        <form method="POST">
+          <input type="text" name="usuario" placeholder="Usuario" required>
+          <input type="password" name="contrasena" placeholder="Contraseña" required>
+          <input type="submit" value="Ingresar" class="btn btn-log">
+        </form>
+        <p>¿Aún no tienes cuenta? <a href="{{ url_for('registro') }}" class="btn btn-reg">Regístrate</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    Pie de página
+  </footer>
+</body>
+</html>
