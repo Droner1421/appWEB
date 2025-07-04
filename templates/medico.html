@@ -2,15 +2,103 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Médico</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='estilos.css') }}">
+  <title>Tabla de Citas Médicas</title>
+  <style>
+    body {
+      background-color: #121212;
+      color: #f0f0f0;
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #00bcd4;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 30px;
+    }
+
+    th, td {
+      border: 1px solid #444;
+      padding: 10px;
+      text-align: center;
+    }
+
+    th {
+      background-color: #1e1e1e;
+      color: #00bcd4;
+    }
+
+    tr:nth-child(even) {
+      background-color: #1a1a1a;
+    }
+
+    tr:hover {
+      background-color: #2c2c2c;
+    }
+
+    .boton {
+      padding: 6px 12px;
+      background-color: #00bcd4;
+      color: black;
+      border: none;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    .boton:hover {
+      background-color: #0097a7;
+    }
+  </style>
 </head>
 <body>
-  <header class="header"><div class="logo"></div><h1>Nombre institución</h1></header>
+   <header class="header"><div class="logo"></div><h1>Casa de salud</h1></header>
   <main>
     <h2>Bienvenido médico</h2>
     <p>ID: {{ id_usuario }}</p>
+   
   </main>
-  <footer class="footer">Pie de página</footer>
+  <h1>Lista de Citas Médicas solo es un ejemplo</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>ID Cita</th>
+        <th>Paciente</th>
+        <th>Fecha</th>
+        <th>Hora</th>
+        <th>Motivo</th>
+        <th>Doctor</th>
+      
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Ejemplo de fila -->
+      <tr>
+        <td>1</td>
+        <td>Juan Pérez</td>
+        <td>2025-07-05</td>
+        <td>09:30</td>
+        <td>Consulta general</td>
+        <td>Dra. López</td>
+        <td>
+          <button class="boton">Concluir cita</button>
+          
+        </td>
+      </tr>
+      <!-- Aquí irían más filas dinámicamente con PHP o JS -->
+    </tbody>
+  </table>
+
 </body>
 </html>
+
+
+
+
+
+
