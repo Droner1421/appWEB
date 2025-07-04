@@ -5,3 +5,4 @@ def conexionDB():
     client = MongoClient(uri)
     db = client["Syra"]
     return db
+

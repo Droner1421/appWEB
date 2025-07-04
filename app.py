@@ -20,12 +20,12 @@ def login():
         user = personal.find_one({'usuario': usuario, 'contrasena': contrasena})
         if user:
             tipo = user['tipo_usuario']
-            _id = str(user['_id'])
+            nombre = str(user['nombre'])
             flash(f'Bienvenido {usuario} ({tipo})')
             if tipo == 'medico':
-                return redirect(url_for('vista_medico', id_usuario=_id))
+                return redirect(url_for('vista_medico', id_usuario=nombre))
             else:
-                return redirect(url_for('vista_recepcionista', id_usuario=_id))
+                return redirect(url_for('vista_recepcionista', id_usuario=nombre))
         else:
             flash('Usuario o contraseña incorrectos')
     return render_template('login.html')
@@ -59,5 +59,4 @@ def vista_recepcionista(id_usuario):
     return render_template('recepcionista.html', id_usuario=id_usuario)
 
 if __name__ == '__main__':
-    port = int(os.environ.get('PORT', 5000))
-    app.run(host='0.0.0.0', port=port, debug=True)
+    app.run(debug=True)
